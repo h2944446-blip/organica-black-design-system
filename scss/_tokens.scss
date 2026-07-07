@@ -1,0 +1,40 @@
+// ============================================
+// Organica Black — Design System
+// SCSS Tokens  (source of truth: tokens/tokens.json)
+// ============================================
+
+// Core palette
+$ob-purple-400: #8b65c2; // light purple
+$ob-purple-500: #7045af; // primary brand purple
+$ob-purple-600: #59378a; // dark purple
+$ob-black:      #111111;
+$ob-gray-900:   #2a2a2a;
+$ob-white:      #ffffff;
+
+// Semantic
+$ob-color-primary:         $ob-purple-500;
+$ob-color-primary-hover:   $ob-purple-600;
+$ob-color-primary-subtle:  $ob-purple-400;
+$ob-color-text:            $ob-black;
+$ob-color-text-secondary:  $ob-gray-900;
+$ob-color-text-on-primary: $ob-white;
+$ob-color-bg:              $ob-white;
+$ob-color-bg-inverse:      $ob-purple-500;
+
+// Typography
+$ob-font-heading: 'Alata', sans-serif;
+$ob-font-body:    'Roboto Slab', serif;
+$ob-font-weight-regular: 400;
+
+$ob-text-sizes: (
+  "xs":      0.75rem,
+  "sm":      0.875rem,
+  "base":    1rem,
+  "lg":      1.25rem,
+  "xl":      1.5rem,
+  "2xl":     2rem,
+  "3xl":     3rem,
+  "display": 4.5rem,
+);
+
+$ob-tracking-caps: 0.3em;

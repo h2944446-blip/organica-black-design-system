@@ -1,0 +1,17 @@
+{
+  "name": "organica-black-design-system",
+  "version": "1.0.0",
+  "description": "Design tokens and brand assets for Organica Black — Nature & More",
+  "main": "js/tokens.js",
+  "type": "module",
+  "exports": {
+    ".": "./js/tokens.js",
+    "./css": "./css/variables.css",
+    "./scss": "./scss/_tokens.scss",
+    "./tailwind": "./tailwind.preset.js",
+    "./tokens": "./tokens/tokens.json"
+  },
+  "files": ["tokens", "css", "scss", "js", "tailwind.preset.js", "assets"],
+  "keywords": ["design-system", "design-tokens", "branding"],
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organica Black — Design System</title>
+<link rel="icon" href="../assets/logo/organica-mark-purple.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/variables.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--ob-font-body);
+    color: var(--ob-color-text);
+    background: var(--ob-color-bg);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3 { font-family: var(--ob-font-heading); font-weight: 400; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--ob-color-bg-inverse);
+    color: var(--ob-color-text-on-primary);
+    padding: 96px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,.08) 0, transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,.15) 0, transparent 45%);
+    pointer-events: none;
+  }
+  .hero img.mark { width: 72px; margin-bottom: 28px; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, var(--ob-text-display));
+    line-height: 1.02;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+  }
+  .hero .tagline {
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: var(--ob-tracking-caps);
+    font-size: var(--ob-text-sm);
+    opacity: .85;
+  }
+
+  /* ---- Sections ---- */
+  section { padding: 72px 0 24px; }
+  section > .wrap > h2 {
+    color: var(--ob-color-primary);
+    text-transform: uppercase;
+    font-size: clamp(2rem, 5vw, var(--ob-text-3xl));
+    margin-bottom: 8px;
+  }
+  .lede { color: var(--ob-color-primary); max-width: 62ch; margin-bottom: 40px; }
+
+  /* ---- Color swatches ---- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+  .swatch {
+    border-radius: 10px; overflow: hidden; cursor: pointer;
+    border: 1px solid #eee;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .swatch:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(17,17,17,.12); }
+  .swatch .chip { height: 110px; }
+  .swatch .meta { padding: 12px 14px; font-size: var(--ob-text-sm); background: #fff; }
+  .swatch .meta strong { font-family: var(--ob-font-heading); display: block; }
+  .swatch .meta code { color: var(--ob-color-text-secondary); font-size: .8rem; }
+  .copied { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--ob-black); color: #fff; padding: 8px 18px; border-radius: 100px;
+    font-size: var(--ob-text-sm); opacity: 0; transition: opacity .25s; pointer-events: none; }
+  .copied.show { opacity: 1; }
+
+  /* ---- Typography ---- */
+  .type-card { border-left: 4px solid var(--ob-color-primary); padding: 8px 0 8px 28px; margin: 28px 0; }
+  .type-card .label {
+    text-transform: uppercase; letter-spacing: var(--ob-tracking-caps);
+    font-size: var(--ob-text-xs); color: var(--ob-color-text-secondary); margin-bottom: 10px;
+  }
+  .spec-heading { font-family: var(--ob-font-heading); font-size: var(--ob-text-2xl); color: var(--ob-color-primary); }
+  .spec-body { max-width: 60ch; }
+
+  /* ---- Logos ---- */
+  .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .logo-card {
+    border-radius: 10px; border: 1px solid #eee; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .logo-card .stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 44px 24px; min-height: 180px; }
+  .logo-card img { max-width: 220px; width: 70%; }
+  .logo-card .meta { padding: 12px 14px; font-size: var(--ob-text-sm); border-top: 1px solid #eee; background: #fff; }
+  .stage.on-white { background: #fff; }
+  .stage.on-purple { background: var(--ob-purple-500); }
+  .stage.on-black { background: var(--ob-black); }
+  .stage.on-light { background: #f0ecf7; }
+
+  /* ---- Rules ---- */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  @media (max-width: 640px) { .rules { grid-template-columns: 1fr; } }
+  .rule-list { list-style: none; }
+  .rule-list li { padding: 10px 0 10px 34px; position: relative; border-bottom: 1px dashed #e5e0ef; }
+  .rule-list li::before { position: absolute; left: 0; font-family: var(--ob-font-heading); }
+  .do li::before { content: "✓"; color: var(--ob-purple-500); }
+  .dont li::before { content: "✕"; color: #d0454c; }
+  .rules h3 { text-transform: uppercase; letter-spacing: .12em; font-size: var(--ob-text-base); margin-bottom: 6px; }
+
+  /* ---- Footer ---- */
+  footer {
+    margin-top: 72px; background: var(--ob-black); color: #fff;
+    padding: 48px 0; text-align: center; font-size: var(--ob-text-sm);
+  }
+  footer img { width: 44px; margin-bottom: 14px; }
+  footer .tag { text-transform: uppercase; letter-spacing: var(--ob-tracking-caps); opacity: .7; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="mark" src="../assets/logo/organica-mark-white.png" alt="Organica Black tree mark">
+    <h1>Organica Black<br>Design System</h1>
+    <p class="tagline">Nature &amp; More</p>
+  </div>
+</header>
+
+<section id="colors">
+  <div class="wrap">
+    <h2>Colors</h2>
+    <p class="lede">The brand is made up of the following colors. Any colors outside of this palette must be used with discretion. Click a swatch to copy its hex value.</p>
+    <div class="swatches">
+      <div class="swatch" data-hex="#7045af"><div class="chip" style="background:#7045af"></div><div class="meta"><strong>Purple 500 · Primary</strong><code>#7045af · rgb(112 69 175)</code></div></div>
+      <div class="swatch" data-hex="#8b65c2"><div class="chip" style="background:#8b65c2"></div><div class="meta"><strong>Purple 400 · Light</strong><code>#8b65c2 · rgb(139 101 194)</code></div></div>
+      <div class="swatch" data-hex="#59378a"><div class="chip" style="background:#59378a"></div><div class="meta"><strong>Purple 600 · Dark</strong><code>#59378a · rgb(89 55 138)</code></div></div>
+      <div class="swatch" data-hex="#111111"><div class="chip" style="background:#111111"></div><div class="meta"><strong>Black</strong><code>#111111 · rgb(17 17 17)</code></div></div>
+      <div class="swatch" data-hex="#2a2a2a"><div class="chip" style="background:#2a2a2a"></div><div class="meta"><strong>Gray 900</strong><code>#2a2a2a · rgb(42 42 42)</code></div></div>
+      <div class="swatch" data-hex="#ffffff"><div class="chip" style="background:#ffffff;border-bottom:1px solid #eee"></div><div class="meta"><strong>White</strong><code>#ffffff · rgb(255 255 255)</code></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="typography">
+  <div class="wrap">
+    <h2>Typography</h2>
+    <p class="lede">Two typefaces, both at regular weight — hierarchy comes from scale and color, not boldness.</p>
+
+    <div class="type-card">
+      <div class="label">Heading · Alata</div>
+      <p class="spec-heading">Typography is the work of anyone who arranges words, letters, numbers and symbols.</p>
+    </div>
+
+    <div class="type-card">
+      <div class="label">Body · Roboto Slab</div>
+      <p class="spec-body">Body font example. In publishing and graphic design, placeholder text is commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content — until the final copy is available.</p>
+    </div>
+
+    <div class="type-card">
+      <div class="label">Tagline · 0.3em tracking</div>
+      <p style="text-transform:uppercase;letter-spacing:var(--ob-tracking-caps);color:var(--ob-color-text-secondary)">Nature &amp; More</p>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <h2>The Logo</h2>
+    <p class="lede">The logo is an integral part of the brand and should be used thoughtfully, consistently, and in its entirety. Each version is shown on its approved background.</p>
+    <div class="logos">
+      <div class="logo-card"><div class="stage on-white"><img src="../assets/logo/organica-logo-full-color.png" alt="Full-color logo"></div><div class="meta"><strong>Full color</strong> — white backgrounds only</div></div>
+      <div class="logo-card"><div class="stage on-purple"><img src="../assets/logo/organica-logo-white.png" alt="White logo"></div><div class="meta"><strong>White</strong> — photos &amp; colored backgrounds</div></div>
+      <div class="logo-card"><div class="stage on-light"><img src="../assets/logo/organica-logo-black.png" alt="Black logo"></div><div class="meta"><strong>Black</strong> — light colored backgrounds</div></div>
+      <div class="logo-card"><div class="stage on-black"><img src="../assets/logo/organica-mark-white.png" alt="White mark" style="max-width:96px"></div><div class="meta"><strong>Mark only</strong> — favicons, avatars, small spaces</div></div>
+    </div>
+
+    <div class="rules">
+      <div>
+        <h3 style="color:var(--ob-purple-500)">Do</h3>
+        <ul class="rule-list do">
+          <li>Keep clear space equal to the height of the tree mark</li>
+          <li>Scale proportionally</li>
+          <li>Pick the version with the strongest contrast</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:#d0454c">Don't</h3>
+        <ul class="rule-list dont">
+          <li>Rotate or distort the logo</li>
+          <li>Partially cover it with other elements</li>
+          <li>Display it directly on a photo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="../assets/logo/organica-mark-white.png" alt="">
+  <div>Organica Black — Design System v1.0</div>
+  <div class="tag">Nature &amp; More</div>
+</footer>
+
+<div class="copied" id="copied">Copied!</div>
+
+<script>
+  const toast = document.getElementById('copied');
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => {
+      navigator.clipboard.writeText(s.dataset.hex).then(() => {
+        toast.textContent = s.dataset.hex + ' copied';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1400);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

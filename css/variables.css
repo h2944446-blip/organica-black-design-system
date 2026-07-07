@@ -1,0 +1,60 @@
+/* ============================================
+   Organica Black — Design System
+   CSS Custom Properties
+   Source of truth: tokens/tokens.json
+   ============================================ */
+
+/* Brand fonts (Google Fonts)
+   Add to <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Alata&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+*/
+
+:root {
+  /* --- Core palette --- */
+  --ob-purple-400: #8b65c2; /* light purple  hsl(264 43% 58%) */
+  --ob-purple-500: #7045af; /* PRIMARY       hsl(264 43% 48%) */
+  --ob-purple-600: #59378a; /* dark purple   hsl(264 43% 38%) */
+  --ob-black:      #111111; /* brand black   hsl(0 0% 7%)     */
+  --ob-gray-900:   #2a2a2a; /* dark gray     hsl(0 0% 17%)    */
+  --ob-white:      #ffffff;
+
+  /* --- Semantic aliases --- */
+  --ob-color-primary:        var(--ob-purple-500);
+  --ob-color-primary-hover:  var(--ob-purple-600);
+  --ob-color-primary-subtle: var(--ob-purple-400);
+  --ob-color-text:           var(--ob-black);
+  --ob-color-text-secondary: var(--ob-gray-900);
+  --ob-color-text-on-primary: var(--ob-white);
+  --ob-color-bg:             var(--ob-white);
+  --ob-color-bg-inverse:     var(--ob-purple-500);
+
+  /* --- Typography --- */
+  --ob-font-heading: 'Alata', sans-serif;
+  --ob-font-body:    'Roboto Slab', serif;
+  --ob-font-weight-regular: 400;
+
+  --ob-text-xs:      0.75rem;
+  --ob-text-sm:      0.875rem;
+  --ob-text-base:    1rem;
+  --ob-text-lg:      1.25rem;
+  --ob-text-xl:      1.5rem;
+  --ob-text-2xl:     2rem;
+  --ob-text-3xl:     3rem;
+  --ob-text-display: 4.5rem;
+
+  --ob-tracking-caps: 0.3em; /* NATURE & MORE tagline style */
+}
+
+/* --- Base element styling (optional, opt-in via .ob-scope) --- */
+.ob-scope {
+  font-family: var(--ob-font-body);
+  color: var(--ob-color-text);
+  background: var(--ob-color-bg);
+}
+
+.ob-scope h1, .ob-scope h2, .ob-scope h3,
+.ob-scope h4, .ob-scope h5, .ob-scope h6 {
+  font-family: var(--ob-font-heading);
+  font-weight: var(--ob-font-weight-regular);
+  color: var(--ob-color-primary);
+}
